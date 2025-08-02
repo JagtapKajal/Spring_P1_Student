@@ -18,10 +18,12 @@ public class StudentController {
     @Autowired
     private StudentService studentService; // <-- This is the instance
 
+    //add Students
     @PostMapping("/addStudent")
     public ResponseEntity<String> addStudent(@RequestBody Student student) {
         System.err.println(student);
-        studentService.saveStudent(student); // <-- Call on instance
+
+        studentService.saveStudent(student);
         return new ResponseEntity<>("Student data saved", HttpStatus.CREATED);
     }
 

@@ -31,6 +31,7 @@ public class StudentServiceImpl implements StudentService {
         return studentlist;
     }
 
+    // Get Student By Id
     @Override
     public Student getStudentById(int id) {
         Optional<Student> optional = studentRepository.findById(id);
