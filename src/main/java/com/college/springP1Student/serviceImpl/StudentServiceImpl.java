@@ -6,16 +6,27 @@ import com.college.springP1Student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class StudentServiceImpl implements StudentService {
 
     @Autowired
     private StudentRepository studentRepository;
 
+    //To save student details
     @Override
     public String saveStudent(Student student) {
 
-        Student saveStudent = StudentRepository.save(Student);
+        Student saveStudent = studentRepository.save(student);
         return "Student saved";
+    }
+
+    //Display all saved Student
+    @Override
+    public List<Student> getAllStudent() {
+
+        List<Student> studentlist = studentRepository.findAll();
+        return studentlist;
     }
 }

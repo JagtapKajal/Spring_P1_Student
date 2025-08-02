@@ -7,6 +7,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/Student")
 public class StudentController {
@@ -19,5 +21,14 @@ public class StudentController {
         System.err.println(student);
         studentService.saveStudent(student); // <-- Call on instance
         return new ResponseEntity<>("Student data saved", HttpStatus.CREATED);
+    }
+
+    //Create method to get All Students
+
+    @GetMapping("/getStudents")
+    public ResponseEntity<List<Student>> getAllStudents() {
+
+        List<Student> studentlist = studentService.getAllStudent();
+        return new ResponseEntity<>(studentlist, HttpStatus.OK);
     }
 }
