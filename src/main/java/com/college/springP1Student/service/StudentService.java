@@ -11,4 +11,6 @@ public interface StudentService {
     public String saveStudent(Student student);
 
     public List<Student> getAllStudent();
+
+    public Student getStudentById(int id);
 }
