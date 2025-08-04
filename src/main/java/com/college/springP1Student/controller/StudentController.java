@@ -28,7 +28,6 @@ public class StudentController {
     }
 
     //Create method to get All Students
-
     @GetMapping("/getStudents")
     public ResponseEntity<List<Student>> getAllStudents() {
 
@@ -37,7 +36,6 @@ public class StudentController {
     }
 
     // Get Student By id
-
     @GetMapping("/getById/{id}")
     public ResponseEntity<Student> getStudentById(int id) {
         Student student = studentService.getStudentById(id);
@@ -48,7 +46,6 @@ public class StudentController {
         }
     }
 
-
     //Delete Student By id
     @GetMapping("/DeleteById/{id}")
     public ResponseEntity<String> deleteById(@PathVariable int id) {
@@ -56,6 +53,14 @@ public class StudentController {
         return new ResponseEntity<>(delete, HttpStatus.OK);
     }
 
+    //Update Student Details
+    @GetMapping("/updateStudent/{id}")
+    public ResponseEntity<Student> updateStudent(@PathVariable("id") int id, @RequestBody Student student) {
+        Student updateStudent = studentService.updateStudent(id, student);
+        return new ResponseEntity<>(updateStudent, HttpStatus.OK);
+    }
+
+    // save All Students List
     public ResponseEntity<String> getAllStudents(List<Student> student) {
         studentService.saveAllStudents(student);
         return new ResponseEntity<>("Student data saved", HttpStatus.CREATED);

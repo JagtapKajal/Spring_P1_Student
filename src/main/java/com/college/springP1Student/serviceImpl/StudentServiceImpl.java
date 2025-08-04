@@ -38,12 +38,28 @@ public class StudentServiceImpl implements StudentService {
         return optional.orElse(null);
     }
 
+    // Delete Student By id
     @Override
     public String DeleteById(int id) {
         studentRepository.deleteById(id);
         return "Student Deleted ";
     }
 
+    // method to Update Student
+    @Override
+    public Student updateStudent(int id, Student newDetails) {
+      Student student =  studentRepository.findById(id).orElseThrow(()->new NullPointerException("Id is not found"+id));
+
+        student.setfName(newDetails.getfName());
+        student.setlName(newDetails.getlName());
+        student.setCity(newDetails.getCity());
+        student.setPhone(newDetails.getPhone());
+
+       Student updatestudent = studentRepository.save(student);
+        return updatestudent;
+    }
+
+    //method to save list of student
     @Override
     public void saveAllStudents(List<Student> student) {
         studentRepository.saveAll(student);

@@ -15,6 +15,8 @@ public interface StudentService {
 
     public String DeleteById(int id);
 
+    Student updateStudent(int id, Student newDetails);
+
     public void saveAllStudents(List<Student> student);
 
 
