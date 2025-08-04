@@ -37,4 +37,10 @@ public class StudentServiceImpl implements StudentService {
         Optional<Student> optional = studentRepository.findById(id);
         return optional.orElse(null);
     }
+
+    @Override
+    public String DeleteById(int id) {
+        studentRepository.deleteById(id);
+        return "Student Deleted ";
+    }
 }
