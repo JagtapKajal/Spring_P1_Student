@@ -39,21 +39,21 @@ public class StudentController {
     // Get Student By id
 
     @GetMapping("/getById/{id}")
-    public ResponseEntity<Student> getStudentById(int id){
+    public ResponseEntity<Student> getStudentById(int id) {
         Student student = studentService.getStudentById(id);
         if (student != null) {
             return ResponseEntity.ok(student);
-        }
-        else
-        {
+        } else {
             return ResponseEntity.notFound().build();
         }
     }
 
+
+    //Delete Student By id
     @GetMapping("/DeleteById/{id}")
-    public ResponseEntity<String> deleteById(@PathVariable int id){
-       String delete =  studentService.DeleteById(id);
-        return new ResponseEntity<>(delete,HttpStatus.OK);
+    public ResponseEntity<String> deleteById(@PathVariable int id) {
+        String delete = studentService.DeleteById(id);
+        return new ResponseEntity<>(delete, HttpStatus.OK);
     }
 
 
