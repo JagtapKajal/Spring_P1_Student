@@ -56,5 +56,8 @@ public class StudentController {
         return new ResponseEntity<>(delete, HttpStatus.OK);
     }
 
-
+    public ResponseEntity<String> getAllStudents(List<Student> student) {
+        studentService.saveAllStudents(student);
+        return new ResponseEntity<>("Student data saved", HttpStatus.CREATED);
+    }
 }

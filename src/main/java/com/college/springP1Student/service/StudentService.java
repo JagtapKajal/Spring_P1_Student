@@ -14,4 +14,8 @@ public interface StudentService {
     public Student getStudentById(int id);
 
     public String DeleteById(int id);
+
+    public void saveAllStudents(List<Student> student);
+
+
 }
