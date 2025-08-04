@@ -50,5 +50,11 @@ public class StudentController {
         }
     }
 
+    @GetMapping("/DeleteById/{id}")
+    public ResponseEntity<String> deleteById(@PathVariable int id){
+       String delete =  studentService.DeleteById(id);
+        return new ResponseEntity<>(delete,HttpStatus.OK);
+    }
+
 
 }
