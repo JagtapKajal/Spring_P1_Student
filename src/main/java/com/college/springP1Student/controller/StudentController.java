@@ -36,7 +36,7 @@ public class StudentController {
         return new ResponseEntity<>(studentlist, HttpStatus.OK);
     }
 
-    // Get Student By Id
+    // Get Student By id
 
     @GetMapping("/getById/{id}")
     public ResponseEntity<Student> getStudentById(int id){

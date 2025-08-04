@@ -5,7 +5,6 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
-
 public interface StudentService {
 
     public String saveStudent(Student student);
