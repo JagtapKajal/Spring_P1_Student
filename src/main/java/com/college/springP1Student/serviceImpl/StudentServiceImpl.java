@@ -48,14 +48,15 @@ public class StudentServiceImpl implements StudentService {
     // method to Update Student
     @Override
     public Student updateStudent(int id, Student newDetails) {
-      Student student =  studentRepository.findById(id).orElseThrow(()->new NullPointerException("Id is not found"+id));
+        Student student = studentRepository.findById(id).orElseThrow(()
+                -> new NullPointerException("Id is not found" + id));
 
         student.setfName(newDetails.getfName());
         student.setlName(newDetails.getlName());
         student.setCity(newDetails.getCity());
         student.setPhone(newDetails.getPhone());
 
-       Student updatestudent = studentRepository.save(student);
+        Student updatestudent = studentRepository.save(student);
         return updatestudent;
     }
 
