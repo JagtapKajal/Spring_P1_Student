@@ -23,8 +23,8 @@ public class StudentController {
     public ResponseEntity<String> addStudent(@RequestBody Student student) {
         System.err.println(student);
 
-        studentService.saveStudent(student);
-        return new ResponseEntity<>("Student data saved", HttpStatus.CREATED);
+       String s =  studentService.saveStudent(student);
+        return new ResponseEntity<>(s, HttpStatus.CREATED);
     }
 
     //Create method to get All Students

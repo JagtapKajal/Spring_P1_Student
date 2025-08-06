@@ -21,7 +21,7 @@ public class StudentServiceImpl implements StudentService {
     public String saveStudent(Student student) {
 
         // call method from generator class to get studentId
-       String stu =  StudentIdGenerator.GenerateId(student);
+        String stu = StudentIdGenerator.GenerateId(student);
         student.setStudentId(stu);
 
         Student saveStudent = studentRepository.save(student);
