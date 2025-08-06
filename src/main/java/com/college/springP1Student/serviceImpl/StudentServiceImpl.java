@@ -1,6 +1,7 @@
 package com.college.springP1Student.serviceImpl;
 
 import com.college.springP1Student.entity.Student;
+import com.college.springP1Student.helper.StudentIdGenerator;
 import com.college.springP1Student.repository.StudentRepository;
 import com.college.springP1Student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +20,12 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public String saveStudent(Student student) {
 
+        // call method from generator class to get studentId
+       String stu =  StudentIdGenerator.GenerateId(student);
+        student.setStudentId(stu);
+
         Student saveStudent = studentRepository.save(student);
-        return "Student saved";
+        return "Hello " + saveStudent.getfName() + " Your id is: " + saveStudent.getStudentId();
     }
 
     //Display all saved Student

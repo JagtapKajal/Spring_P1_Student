@@ -19,6 +19,25 @@ public class Student {
     private String gender;
     private long phone;
 
+    private int yearOfBirth;
+    private String StudentId;
+
+    public String getStudentId() {
+        return StudentId;
+    }
+
+    public void setStudentId(String studentId) {
+        StudentId = studentId;
+    }
+
+    public int getYearOfBirth() {
+        return yearOfBirth;
+    }
+
+    public void setYearOfBirth(int yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
+    }
+
     public int getId() {
         return id;
     }
@@ -76,6 +95,8 @@ public class Student {
                 ", city='" + city + '\'' +
                 ", gender='" + gender + '\'' +
                 ", phone=" + phone +
+                ", yearOfBirth=" + yearOfBirth +
+                ", StudentId='" + StudentId + '\'' +
                 '}';
     }
 }
