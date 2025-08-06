@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class StudentServiceImpl implements StudentService {
@@ -72,5 +73,14 @@ public class StudentServiceImpl implements StudentService {
     public void saveAllStudents(List<Student> student) {
         studentRepository.saveAll(student);
 
+    }
+
+    @Override
+    public List<Student> filterStudentByCity(String city) {
+        List<Student> studentlist = studentRepository.findAll();
+
+        List<Student> filterList = studentlist.stream().filter(student ->
+                student.getCity().equalsIgnoreCase(city)).collect(Collectors.toList());
+        return filterList;
     }
 }

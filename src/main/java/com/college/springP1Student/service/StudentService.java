@@ -19,5 +19,7 @@ public interface StudentService {
 
     public void saveAllStudents(List<Student> student);
 
+    List<Student> filterStudentByCity(String city);
+
 
 }

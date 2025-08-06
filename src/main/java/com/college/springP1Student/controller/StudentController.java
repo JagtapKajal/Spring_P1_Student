@@ -23,7 +23,7 @@ public class StudentController {
     public ResponseEntity<String> addStudent(@RequestBody Student student) {
         System.err.println(student);
 
-       String s =  studentService.saveStudent(student);
+        String s = studentService.saveStudent(student);
         return new ResponseEntity<>(s, HttpStatus.CREATED);
     }
 
@@ -64,5 +64,12 @@ public class StudentController {
     public ResponseEntity<String> getAllStudents(List<Student> student) {
         studentService.saveAllStudents(student);
         return new ResponseEntity<>("Student data saved", HttpStatus.CREATED);
+    }
+
+    @GetMapping("/filter")
+    public ResponseEntity<List<Student>> filterByCity(@RequestParam(required = false) String city) {
+        List<Student> studentList = studentService.filterStudentByCity(city);
+        return new ResponseEntity<>(studentList, HttpStatus.OK);
+
     }
 }
