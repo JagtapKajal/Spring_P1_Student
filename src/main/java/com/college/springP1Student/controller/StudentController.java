@@ -66,6 +66,7 @@ public class StudentController {
         return new ResponseEntity<>("Student data saved", HttpStatus.CREATED);
     }
 
+    //Filter city from database
     @GetMapping("/filter")
     public ResponseEntity<List<Student>> filterByCity(@RequestParam(required = false) String city) {
         List<Student> studentList = studentService.filterStudentByCity(city);
