@@ -75,6 +75,7 @@ public class StudentServiceImpl implements StudentService {
 
     }
 
+    //filter city from database
     @Override
     public List<Student> filterStudentByCity(String city) {
         List<Student> studentlist = studentRepository.findAll();
@@ -84,12 +85,13 @@ public class StudentServiceImpl implements StudentService {
         return filterList;
     }
 
+    //filter gender from database
     @Override
     public List<Student> filterByGender(String gender) {
-       List<Student>  stulist = studentRepository.findAll();
+        List<Student> stulist = studentRepository.findAll();
 
-       List<Student> filter = stulist.stream().filter(student->
-               student.getGender().equalsIgnoreCase(gender)).collect(Collectors.toList());
+        List<Student> filter = stulist.stream().filter(student ->
+                student.getGender().equalsIgnoreCase(gender)).collect(Collectors.toList());
         return filter;
     }
 }
