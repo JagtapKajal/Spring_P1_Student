@@ -83,4 +83,13 @@ public class StudentServiceImpl implements StudentService {
                 student.getCity().equalsIgnoreCase(city)).collect(Collectors.toList());
         return filterList;
     }
+
+    @Override
+    public List<Student> filterByGender(String gender) {
+       List<Student>  stulist = studentRepository.findAll();
+
+       List<Student> filter = stulist.stream().filter(student->
+               student.getGender().equalsIgnoreCase(gender)).collect(Collectors.toList());
+        return filter;
+    }
 }

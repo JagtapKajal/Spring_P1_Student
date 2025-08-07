@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -68,9 +69,19 @@ public class StudentController {
 
     //Filter city from database
     @GetMapping("/filter")
-    public ResponseEntity<List<Student>> filterByCity(@RequestParam(required = false) String city) {
-        List<Student> studentList = studentService.filterStudentByCity(city);
-        return new ResponseEntity<>(studentList, HttpStatus.OK);
+    public ResponseEntity<List<Student>> filterByCity(@RequestParam(required = false) String city,
+                                                     @RequestParam(required = false) String gender) {
+       // List<Student> studentList = studentService.filterStudentByCity(city);
+
+        List<Student> sortedList = new ArrayList<>();
+        if(city != null){
+            sortedList = studentService.filterStudentByCity(city);
+        }
+        else{
+            sortedList = studentService.filterByGender(gender);
+        }
+        return new ResponseEntity<>(sortedList, HttpStatus.OK);
 
     }
+
 }

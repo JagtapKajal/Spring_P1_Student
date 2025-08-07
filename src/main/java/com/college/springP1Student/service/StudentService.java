@@ -21,5 +21,7 @@ public interface StudentService {
 
     List<Student> filterStudentByCity(String city);
 
+    List<Student> filterByGender(String gender);
+
 
 }
