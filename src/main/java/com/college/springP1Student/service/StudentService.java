@@ -23,6 +23,6 @@ public interface StudentService {
 
     List<Student> filterByGender(String gender);
 
-
+    public Student StudentById(int id);
 
 }
