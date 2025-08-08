@@ -1,5 +1,6 @@
 package com.college.springP1Student.serviceImpl;
 
+import com.college.springP1Student.customException.StudentNotFoundException;
 import com.college.springP1Student.entity.Student;
 import com.college.springP1Student.helper.StudentIdGenerator;
 import com.college.springP1Student.repository.StudentRepository;
@@ -93,5 +94,12 @@ public class StudentServiceImpl implements StudentService {
         List<Student> filter = stulist.stream().filter(student ->
                 student.getGender().equalsIgnoreCase(gender)).collect(Collectors.toList());
         return filter;
+    }
+
+    @Override
+    public Student StudentById(int id) {
+        return studentRepository.findById(id).orElseThrow(()
+                ->new StudentNotFoundException("Student with Id "+ id +" Not Found"));
+
     }
 }
