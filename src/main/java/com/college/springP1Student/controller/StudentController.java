@@ -71,30 +71,27 @@ public class StudentController {
     //Filter city from database
     @GetMapping("/filter")
     public ResponseEntity<List<Student>> filterByCity(@RequestParam(required = false) String city,
-                                                     @RequestParam(required = false) String gender) {
+                                                      @RequestParam(required = false) String gender) {
 
-       // List<Student> studentList = studentService.filterStudentByCity(city);
+        // List<Student> studentList = studentService.filterStudentByCity(city);
 
-       List<Student> student = studentService.getAllStudent();
+        List<Student> student = studentService.getAllStudent();
 
-       List<Student> filteredList = student;
+        List<Student> filteredList = student;
         List<Student> sortedList = new ArrayList<>();
 
-        if(city != null && gender != null){
-           filteredList = student.stream().filter(stu->stu.getCity().equalsIgnoreCase(city)&&
-                   stu.getGender().equalsIgnoreCase(gender)).collect(Collectors.toList());
-        }
-        else if (city != null) {
+        if (city != null && gender != null) {
+            filteredList = student.stream().filter(stu -> stu.getCity().equalsIgnoreCase(city) &&
+                    stu.getGender().equalsIgnoreCase(gender)).collect(Collectors.toList());
+        } else if (city != null) {
             sortedList = studentService.filterStudentByCity(city);
-        }
-        else if (gender != null) {
+        } else if (gender != null) {
             sortedList = studentService.filterByGender(gender);
+        } else {
+            return new ResponseEntity<>(student, HttpStatus.BAD_REQUEST);
         }
-        else{
-            return new ResponseEntity<>(student,HttpStatus.BAD_REQUEST);
-        }
-        if(filteredList.isEmpty()){
-            return new ResponseEntity<>(filteredList,HttpStatus.NOT_FOUND);
+        if (filteredList.isEmpty()) {
+            return new ResponseEntity<>(filteredList, HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(sortedList, HttpStatus.OK);
 
