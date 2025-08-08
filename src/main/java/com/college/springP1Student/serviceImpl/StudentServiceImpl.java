@@ -102,4 +102,9 @@ public class StudentServiceImpl implements StudentService {
                 ->new StudentNotFoundException("Student with Id "+ id +" Not Found"));
 
     }
+
+    @Override
+    public String deleteStudentByCity(String city) {
+        return "";
+    }
 }
