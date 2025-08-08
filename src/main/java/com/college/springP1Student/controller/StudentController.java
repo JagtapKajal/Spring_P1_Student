@@ -68,7 +68,7 @@ public class StudentController {
         return new ResponseEntity<>("Student data saved", HttpStatus.CREATED);
     }
 
-    //Filter city from database
+    //Filter city and gender from database without creating new API
     @GetMapping("/filter")
     public ResponseEntity<List<Student>> filterByCity(@RequestParam(required = false) String city,
                                                       @RequestParam(required = false) String gender) {
@@ -97,4 +97,10 @@ public class StudentController {
 
     }
 
+    // Delete Student By city
+    @DeleteMapping("/deleteByCity/{city}")
+    public ResponseEntity<String> deleteByCity(@PathVariable String city) {
+        String response = studentService.deleteStudentByCity(city);
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 }
