@@ -105,6 +105,8 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public String deleteStudentByCity(String city) {
-        return "";
+
+       List<Student>  studentlist =  studentRepository.findByCity(city);
+        return "Student Deleted";
     }
 }
