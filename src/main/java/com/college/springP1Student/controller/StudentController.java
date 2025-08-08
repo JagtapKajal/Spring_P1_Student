@@ -71,6 +71,7 @@ public class StudentController {
     @GetMapping("/filter")
     public ResponseEntity<List<Student>> filterByCity(@RequestParam(required = false) String city,
                                                      @RequestParam(required = false) String gender) {
+
        // List<Student> studentList = studentService.filterStudentByCity(city);
 
         List<Student> sortedList = new ArrayList<>();
