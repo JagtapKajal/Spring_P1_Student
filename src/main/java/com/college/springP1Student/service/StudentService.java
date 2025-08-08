@@ -25,4 +25,6 @@ public interface StudentService {
 
     public Student StudentById(int id);
 
+    public String deleteStudentByCity(String city);
+
 }
