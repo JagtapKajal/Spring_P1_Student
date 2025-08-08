@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/Student")
@@ -74,12 +75,26 @@ public class StudentController {
 
        // List<Student> studentList = studentService.filterStudentByCity(city);
 
+       List<Student> student = studentService.getAllStudent();
+
+       List<Student> filteredList = student;
         List<Student> sortedList = new ArrayList<>();
-        if(city != null){
+
+        if(city != null && gender != null){
+           filteredList = student.stream().filter(stu->stu.getCity().equalsIgnoreCase(city)&&
+                   stu.getGender().equalsIgnoreCase(gender)).collect(Collectors.toList());
+        }
+        else if (city != null) {
             sortedList = studentService.filterStudentByCity(city);
         }
-        else{
+        else if (gender != null) {
             sortedList = studentService.filterByGender(gender);
+        }
+        else{
+            return new ResponseEntity<>(student,HttpStatus.BAD_REQUEST);
+        }
+        if(filteredList.isEmpty()){
+            return new ResponseEntity<>(filteredList,HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity<>(sortedList, HttpStatus.OK);
 
