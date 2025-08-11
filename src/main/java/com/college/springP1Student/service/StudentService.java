@@ -30,4 +30,7 @@ public interface StudentService {
 
     // filter student by their FirstName
     List<Student> filterByFirstName(String fName);
+
+    // filter student by their LastName
+    List<Student> filterByLastName(String lName);
 }
