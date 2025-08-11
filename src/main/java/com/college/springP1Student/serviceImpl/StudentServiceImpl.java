@@ -123,5 +123,19 @@ public class StudentServiceImpl implements StudentService {
         return filteredStudents;
     }
 
+    @Override
+    public List<Student> filterByLastName(String lName) {
+
+        List<Student> filteredStudents = studentRepository.findAll().stream()
+                .filter((k -> lName.equalsIgnoreCase(k.getlName())))
+                .collect(Collectors.toList());
+
+        if (filteredStudents.isEmpty())
+        {
+            throw new StudentNotFoundException("Students with gender : '" + lName + "' Not Found ");
+        }
+        return filteredStudents;
+    }
+
 
 }
