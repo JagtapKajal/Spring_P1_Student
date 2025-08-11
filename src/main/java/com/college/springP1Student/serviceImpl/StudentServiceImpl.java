@@ -99,14 +99,14 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student StudentById(int id) {
         return studentRepository.findById(id).orElseThrow(()
-                ->new StudentNotFoundException("Student with Id "+ id +" Not Found"));
+                -> new StudentNotFoundException("Student with Id " + id + " Not Found"));
 
     }
 
     @Override
     public String deleteStudentByCity(String city) {
 
-       List<Student>  studentlist =  studentRepository.findByCity(city);
+        List<Student> studentlist = studentRepository.findByCity(city);
         return "Student Deleted";
     }
 
@@ -116,8 +116,7 @@ public class StudentServiceImpl implements StudentService {
                 .filter((k -> fName.equalsIgnoreCase(k.getfName())))
                 .collect(Collectors.toList());
 
-        if (filteredStudents.isEmpty())
-        {
+        if (filteredStudents.isEmpty()) {
             throw new StudentNotFoundException("Students with gender : '" + fName + "' Not Found ");
         }
         return filteredStudents;
@@ -130,8 +129,7 @@ public class StudentServiceImpl implements StudentService {
                 .filter((k -> lName.equalsIgnoreCase(k.getlName())))
                 .collect(Collectors.toList());
 
-        if (filteredStudents.isEmpty())
-        {
+        if (filteredStudents.isEmpty()) {
             throw new StudentNotFoundException("Students with gender : '" + lName + "' Not Found ");
         }
         return filteredStudents;
