@@ -106,16 +106,14 @@ public class StudentController {
 
     // filter by FirstName
     @GetMapping("/filterByfName")
-    public ResponseEntity<List<Student>> filterByfName(@RequestParam(required = false) String fName)
-    {
+    public ResponseEntity<List<Student>> filterByfName(@RequestParam(required = false) String fName) {
         List<Student> studentsList = studentService.filterByFirstName(fName);
         return new ResponseEntity<>(studentsList, HttpStatus.OK);
     }
 
     // filter by LastName
     @GetMapping("/filterBylName")
-    public ResponseEntity<List<Student>> filterBylName(@RequestParam(required = false) String lName)
-    {
+    public ResponseEntity<List<Student>> filterBylName(@RequestParam(required = false) String lName) {
         List<Student> studentsList = studentService.filterByLastName(lName);
         return new ResponseEntity<>(studentsList, HttpStatus.OK);
     }
