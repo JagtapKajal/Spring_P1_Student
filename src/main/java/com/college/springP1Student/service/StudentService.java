@@ -27,4 +27,7 @@ public interface StudentService {
 
     public String deleteStudentByCity(String city);
 
+
+    // filter student by their FirstName
+    List<Student> filterByFirstName(String fName);
 }
