@@ -103,4 +103,12 @@ public class StudentController {
         String response = studentService.deleteStudentByCity(city);
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    // filter by FirstName
+    @GetMapping("/filterByfName")
+    public ResponseEntity<List<Student>> filterByfName(@RequestParam(required = false) String fName)
+    {
+        List<Student> studentsList = studentService.filterByFirstName(fName);
+        return new ResponseEntity<>(studentsList, HttpStatus.OK);
+    }
 }
