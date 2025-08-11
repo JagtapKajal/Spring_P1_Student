@@ -109,4 +109,11 @@ public class StudentServiceImpl implements StudentService {
        List<Student>  studentlist =  studentRepository.findByCity(city);
         return "Student Deleted";
     }
+
+    @Override
+    public List<Student> filterByFirstName(String fName) {
+        return List.of();
+    }
+
+
 }
