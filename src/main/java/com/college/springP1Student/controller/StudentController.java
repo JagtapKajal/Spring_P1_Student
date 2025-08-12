@@ -70,8 +70,7 @@ public class StudentController {
 
     //Filter city and gender from database without creating new API
     @GetMapping("/filter")
-    public ResponseEntity<List<Student>> filterByCity(@RequestParam(required = false) String city,
-                                                      @RequestParam(required = false) String gender) {
+    public ResponseEntity<List<Student>> filterByCity(@RequestParam(required = false) String city, @RequestParam(required = false) String gender) {
 
         // List<Student> studentList = studentService.filterStudentByCity(city);
 
@@ -81,8 +80,7 @@ public class StudentController {
         List<Student> sortedList = new ArrayList<>();
 
         if (city != null && gender != null) {
-            filteredList = student.stream().filter(stu -> stu.getCity().equalsIgnoreCase(city) &&
-                    stu.getGender().equalsIgnoreCase(gender)).collect(Collectors.toList());
+            filteredList = student.stream().filter(stu -> stu.getCity().equalsIgnoreCase(city) && stu.getGender().equalsIgnoreCase(gender)).collect(Collectors.toList());
         } else if (city != null) {
             sortedList = studentService.filterStudentByCity(city);
         } else if (gender != null) {
@@ -117,4 +115,5 @@ public class StudentController {
         List<Student> studentsList = studentService.filterByLastName(lName);
         return new ResponseEntity<>(studentsList, HttpStatus.OK);
     }
+
 }
