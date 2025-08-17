@@ -1,5 +1,6 @@
 package com.college.springP1Student.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,6 +15,7 @@ public class Profile {
     private String city;
 
     @OneToOne(mappedBy = "profile")
+    @JsonBackReference
     private Employee employee;
 
     public int getId() {

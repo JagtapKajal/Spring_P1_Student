@@ -1,6 +1,7 @@
 package com.college.springP1Student.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 
 @Entity
@@ -14,6 +15,7 @@ public class Employee {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "profile_id", referencedColumnName = "id")
+    @JsonManagedReference
     private Profile profile;
 
     public int getId() {
