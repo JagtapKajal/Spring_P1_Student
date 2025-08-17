@@ -28,4 +28,9 @@ public class EmployeeServiceImpl implements EmployeeService {
     public List<Employee> getAllEmp() {
         return employeeRepository.findAll();
     }
+
+    @Override
+    public String DeleteById(int id) {
+        return "Employee deleted Successfully with "+id;
+    }
 }
