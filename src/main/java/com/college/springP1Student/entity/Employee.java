@@ -13,8 +13,8 @@ public class Employee {
     private String empname;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "passport_id", referencedColumnName = "id")
-    private Passport passport;
+    @JoinColumn(name = "profile_id", referencedColumnName = "id")
+    private Profile profile;
 
     public int getId() {
         return id;
@@ -32,11 +32,11 @@ public class Employee {
         this.empname = empname;
     }
 
-    public Passport getPassport() {
-        return passport;
+    public Profile getProfile() {
+        return profile;
     }
 
-    public void setPassport(Passport passport) {
-        this.passport = passport;
+    public void setProfile(Profile profile) {
+        this.profile = profile;
     }
 }
