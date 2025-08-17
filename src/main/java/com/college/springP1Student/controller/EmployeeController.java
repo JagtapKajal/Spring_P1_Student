@@ -5,6 +5,8 @@ import com.college.springP1Student.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/Employee")
 public class EmployeeController {
@@ -24,5 +26,10 @@ public class EmployeeController {
     @GetMapping("/getEmployee/{id}")
     public Employee getById(@PathVariable int id){
         return employeeService.getById(id);
+    }
+
+    @GetMapping
+    public List<Employee> getAllEmployee(){
+        return employeeService.getAllEmp();
     }
 }

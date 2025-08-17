@@ -6,6 +6,8 @@ import com.college.springP1Student.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
 
@@ -20,5 +22,10 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public Employee getById(int id) {
         return employeeRepository.findById(id).orElseThrow(()->new RuntimeException("Employee not found with " + id ));
+    }
+
+    @Override
+    public List<Employee> getAllEmp() {
+        return employeeRepository.findAll();
     }
 }
