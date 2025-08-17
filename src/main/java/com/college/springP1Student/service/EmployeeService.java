@@ -15,5 +15,6 @@ public interface EmployeeService {
 
     public List<Employee> getAllEmp();
 
+    public String DeleteById(int id);
 
 }
