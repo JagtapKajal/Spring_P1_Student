@@ -4,6 +4,8 @@ import com.college.springP1Student.entity.Department;
 import com.college.springP1Student.repository.DepartmentRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class DepartmentService {
 
@@ -15,5 +17,8 @@ public class DepartmentService {
 
     public Department saveDepartment(Department department) {
         return departmentRepository.save(department);
+    }
+    public List<Department> getAllDepartments() {
+        return departmentRepository.findAll();
     }
 }
