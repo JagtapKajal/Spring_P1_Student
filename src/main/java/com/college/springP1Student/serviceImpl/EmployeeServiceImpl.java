@@ -21,7 +21,7 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public Employee getById(int id) {
-        return employeeRepository.findById(id).orElseThrow(()->new RuntimeException("Employee not found with " + id ));
+        return employeeRepository.findById(id).orElseThrow(() -> new RuntimeException("Employee not found with " + id));
     }
 
     @Override
@@ -31,6 +31,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     @Override
     public String DeleteById(int id) {
-        return "Employee deleted Successfully with "+id;
+        return "Employee deleted Successfully with " + id;
     }
 }
