@@ -17,7 +17,7 @@ public class DepartmentController {
         this.departmentService = departmentService;
     }
 
-    @PostMapping("/addDep")
+    @PostMapping("/addDepartment")
     public Department createDepartment(@RequestBody Department department) {
         return departmentService.saveDepartment(department);
     }
