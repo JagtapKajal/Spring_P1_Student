@@ -22,7 +22,7 @@ public class DepartmentController {
         return departmentService.saveDepartment(department);
     }
 
-    @GetMapping("/getDep")
+    @GetMapping("/getDepartment")
     public List<Department> getDepartments() {
 
         return departmentService.getAllDepartments();
